@@ -1,4 +1,7 @@
 import os
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", __file__)
+# import django
+# django.setup()
 
 """
 Django settings for total_tts project.
@@ -33,6 +36,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
+    'backend.apps.BackendConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,9 +84,14 @@ WSGI_APPLICATION = 'total_tts.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tts',
+        'USER': 'user01',
+        'PASSWORD': 'test1234',
+        'HOST': '127.0.0.1', # apparently can also use 'localhost'
+        'PORT': '5432', # default is 5432
     }
+
 }
 
 
